@@ -37,9 +37,6 @@ mod.on_all_mods_loaded = function()
         cur_lms = self._last_man_standing
 
         if cur_lms and not old_lms then
-            mod:echo("last man standing: true")
-            mod:echo(mod.replacement_audio)
-            mod:echo(mod.audio_id)
             if mod.replacement_audio and not mod.audio_id then
                 mod.audio_id = get_mod("Audio").play_file(mod.replacement_audio, {
                     audio_type = "music",
@@ -52,7 +49,6 @@ mod.on_all_mods_loaded = function()
                 Audio.stop_file(mod.audio_id)
                 mod.audio_id = nil
             end
-            mod:echo("last man standing: false")
         end
     end)
 
